@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <style>
+  .router-link-active {
+    background-color: red;
+  }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h1>Hello App1</h1>
+    <p>
+      <!-- 탐색을 위해 라우터 링크 구성요소를 사용 -->
+      <!-- `to` prop를 전달하여 링크 지정 -->
+      <!-- `<router-link>`는 기본적으로 `<a>` 태그로 렌더링 -->
+      <router-link to="/foo">Go to Foo</router-link>
+      <router-link to="/bar">Go to bar</router-link>
+    </p>
+    <!-- route outlet -->
+    <!-- 라우트와 일치하는 컴포넌트를 아래에 렌더링 -->
+    <router-view></router-view>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
