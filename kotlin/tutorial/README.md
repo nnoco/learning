@@ -26,3 +26,7 @@ HelloKt는 kotlin 컴파일러가 hello.kt 파일로부터 생성한 메인 클�
 ```
 $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
+
+---
+[realm의 academy post](https://academy.realm.io/kr/posts/kotlin-does-java-droidcon-boston-2017-gonda/)
+
