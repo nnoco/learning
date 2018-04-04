@@ -28,5 +28,5 @@ $ kotlinc -script list_folders.kts <path_to_folder_to_inspect>
 ```
 
 ---
-[realm의 academy post](https://academy.realm.io/kr/posts/kotlin-does-java-droidcon-boston-2017-gonda/)
-
+- [realm의 academy post](https://academy.realm.io/kr/posts/kotlin-does-java-droidcon-boston-2017-gonda/)
+- [인프런 - 최정연님 강의](https://www.inflearn.com/course/%EC%BD%94%ED%8B%80%EB%A6%B0-%EA%B0%95%EC%A2%8C-%EC%83%88%EC%B0%A8%EC%9B%90/)
