@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <message-list :items="messages" @delete="deleteMessage"></message-list>
+
+        <form v-on:submit.prevent="addMessage">
+            <textarea v-focus v-model="newMessage" placeholder="Leave a message">
+            </textarea>
+            <div>
+                <button
+                    type="submit"
+                    :disabled="addDisabled"
+                >Add</button>
+            </div>
+        </form>
+    </div>
+    <script type="module">
+        import MessageList from './components/MessageList_.js';
+
+        import './directives/focus.directive.js';
+        import './filters/datetime.filter.js';
+
+        let vm = new Vue({
+            el: '#app',
+            components: {
+                MessageList,
+            },
+            data() {
+                return {
+                    messages: [],
+                    newMessage: '',
+                }
+            },
+            methods: {
+                addMessage(){
+                    // '' => false
+                    // false => false
+                    // 0 => false
+                    // undefined => false
+                    if(!this.newMessage) { // 비어있는 경우
+                        console.log('아무것도 입력하지 않고 [Add] 버튼을 클릭함');
+                    } else {
+                        let now = new Date();
+
+                        this.messages.push({
+                            id: now.getTime(),
+                            text: this.newMessage,
+                            createdAt: now
+                        });
+
+                        this.newMessage = '';
+                    }
+                },
+                deleteMessage(message) {
+                    this.messages.splice(this.messages.indexOf(message), 1);
+                }
+            },
+            computed: {
+                addDisabled() {
+                    return this.messages.length >= 10  || this.newMessage.length > 50;
+                }
+            }
+        });
+    </script>
+
+    
+</body>
+</html>
