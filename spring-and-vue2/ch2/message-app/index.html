@@ -32,8 +32,15 @@
         import './directives/focus.directive.js';
         import './filters/datetime.filter.js';
 
+        import LifecycleLogger from './plugins/lifecycle-logger.plugin.js';
+
+        Vue.use(LifecycleLogger, {
+            beforeMount: false
+        });
+
         let vm = new Vue({
             el: '#app',
+            name: 'MessagesApp',
             components: {
                 MessageList,
             },
@@ -71,7 +78,7 @@
                 addDisabled() {
                     return this.messages.length >= 10  || this.newMessage.length > 50;
                 }
-            }
+            },
         });
     </script>
 

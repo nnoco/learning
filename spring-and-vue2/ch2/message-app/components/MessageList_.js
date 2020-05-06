@@ -5,6 +5,7 @@ export default {
     template: `<ul>
     <message-list-item v-for="item in items" :key="item.id" :item="item" @delete="deleteMessage(item)"></message-list-item>
     </ul>`,
+    name: 'MessageListItem',
     components: {
         MessageListItem
     },

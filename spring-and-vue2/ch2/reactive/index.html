@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="message"></p>
+    <script>
+        let message = document.getElementById('message');
+
+        let vm = {
+            data: {
+                message: 'Hello World!'
+            },
+
+            set message(newMessage) {
+                console.log('set message: ' + newMessage);
+                this.data.message = newMessage;
+                this.watcher.changed('message');
+            },
+
+            get message() {
+                console.log('get message');
+                return this.data.message;
+            },
+
+            watcher: {
+                changed(propertyName) {
+                    if('message' === propertyName) {
+                        message.innerText = vm.message;
+                    }
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>
