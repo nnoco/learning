@@ -10,20 +10,21 @@ import {
 import Time from './Time';
 import Context from './context';
 
+import NavItem from './NavItem';
+
+const navItems = [
+    new NavItem('/', 'Home'),
+    new NavItem('/time', 'Time'),
+    new NavItem('/context', 'Context, Context.Provider/Consumer'),
+]
+
 function App() {
     return (
         <BrowserRouter>
             <nav>
                 <ul>
-                    <li>
-                        <Link to="/">/</Link>
-                    </li>
-                    <li>
-                        <Link to="/time">Time(useEffect Clean Up)</Link>
-                    </li>
-                    <li>
-                        <Link to="/context">Context</Link>
-                    </li>
+                    { navItems.map(navItem => 
+                        <li key={navItem.path}><Link to={navItem.path}>{navItem.label}</Link></li>) }
                 </ul>
             </nav>
 

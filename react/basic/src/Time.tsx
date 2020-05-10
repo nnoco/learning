@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export default () => {
     const [time, setTime] = React.useState(new Date());
