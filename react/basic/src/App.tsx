@@ -2,8 +2,6 @@ import React from 'react';
 import './App.css';
 import {
     BrowserRouter,
-    Switch,
-    Route,
     Link,
 } from 'react-router-dom';
 
@@ -11,6 +9,7 @@ import Time from './Time';
 import Context from './context';
 
 import NavItem from './NavItem';
+import Routes from './Routes';
 
 const navItems = [
     new NavItem('/', 'Home'),
@@ -28,17 +27,7 @@ function App() {
                 </ul>
             </nav>
 
-            <Switch>
-                <Route path="/" exact>
-                    <h1>Hello World!</h1>
-                </Route>
-                <Route path="/time">
-                    <Time/>
-                </Route>
-                <Route path="/context">
-                    <Context />
-                </Route>
-            </Switch>
+            <Routes />
         </BrowserRouter>
     )
 }
