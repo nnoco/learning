@@ -1,0 +1,3 @@
+logging:
+  level:
+    app.messages.AuditingFilter: DEBUG
